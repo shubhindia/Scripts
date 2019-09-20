@@ -19,7 +19,7 @@ Remove_Old_Backup()
 
 #Zip the backsup
 #tar -cvf "$(date +"%d%m%y")-backup.tar" /asfss  > log.txt
-zip "$(date +"%d%m%y")-backup" *  > log.txt
+zip /root/backup/"$(date +"%d%m%y")-backup" *  > log.txt
 retVal=$?
 if [ $retVal -ne 0 ]; then
 
