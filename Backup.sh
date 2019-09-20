@@ -12,6 +12,11 @@ Failure()
     cat log.txt >> failurelog
 }
 
+Remove_Old_Backup()
+{
+    find /root/backup -type f -name '*.zip' -mtime +3 -delete
+}
+
 #Zip the backsup
 #tar -cvf "$(date +"%d%m%y")-backup.tar" /asfss  > log.txt
 zip "$(date +"%d%m%y")-backup" *  > log.txt
@@ -22,6 +27,7 @@ if [ $retVal -ne 0 ]; then
 
 else
     Success
+    Remove_Old_Backup
 fi
 
 
